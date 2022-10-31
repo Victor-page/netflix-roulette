@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/netflix-roulette/static/css/main.6bfd6d81.css",
+    "main.js": "/netflix-roulette/static/js/main.bdd1616e.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/netflix-roulette/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/bg.jpg": "/netflix-roulette/static/media/bg.01f2ca1a65d5fdb47f2e.jpg",
+    "index.html": "/netflix-roulette/index.html",
+    "main.6bfd6d81.css.map": "/netflix-roulette/static/css/main.6bfd6d81.css.map",
+    "main.bdd1616e.js.map": "/netflix-roulette/static/js/main.bdd1616e.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/netflix-roulette/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6bfd6d81.css",
+    "static/js/main.bdd1616e.js"
+  ]
+}
