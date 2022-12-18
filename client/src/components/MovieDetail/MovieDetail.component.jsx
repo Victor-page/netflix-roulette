@@ -1,4 +1,7 @@
+import PropTypes from "prop-types";
+
 import { Title } from "components/Title";
+
 import classes from "./MovieDetail.module.css";
 
 export const MovieDetail = ({
@@ -26,3 +29,14 @@ export const MovieDetail = ({
     </section>
   </article>
 );
+
+MovieDetail.propTypes = {
+  title: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  posterPath: PropTypes.string.isRequired,
+  runtime: PropTypes.string,
+  rating: PropTypes.number,
+  voteAverage: PropTypes.number,
+  overview: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+};

@@ -2,10 +2,7 @@ import { useNavigate, useLocation, createSearchParams } from "react-router-dom";
 
 import { SortSelector } from "components";
 
-const sortOptionsList = [
-  { value: "vote_average", label: "Rating" },
-  { value: "release_date", label: "Release date" },
-];
+import { sortList } from "./model";
 
 export const GeneralFilter = () => {
   const navigate = useNavigate();
@@ -27,7 +24,7 @@ export const GeneralFilter = () => {
 
   return (
     <SortSelector
-      options={sortOptionsList}
+      options={sortList}
       onChange={onSortOptionChange}
       value={sortByURLSearchParam ?? "vote_average"}
       label="Sort by"

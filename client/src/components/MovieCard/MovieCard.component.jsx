@@ -150,7 +150,6 @@ export const MovieCard = ({
             menuIsOpen={menuIsOpen}
             options={optionsList}
             id="genre"
-            value={optionValue}
             onChange={optionChangeHandler}
             extraClassName={classes["options-select"]}
             dropdownIndicator={<ShowOptions />}
@@ -170,9 +169,12 @@ export const MovieCard = ({
 };
 
 MovieCard.propTypes = {
-  posterPath: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string),
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   id: PropTypes.number.isRequired,
-  year: PropTypes.number,
+  posterPath: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string.isRequired,
+  runtime: PropTypes.number,
+  voteAverage: PropTypes.number.isRequired,
+  overview: PropTypes.string.isRequired,
 };

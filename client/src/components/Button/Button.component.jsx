@@ -33,4 +33,7 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   type: PropTypes.string,
   extraClassName: PropTypes.string,
+  primary: PropTypes.bool,
+  inverted: PropTypes.bool,
+  secondary: PropTypes.bool,
 };
