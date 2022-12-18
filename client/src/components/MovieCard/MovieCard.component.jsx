@@ -135,7 +135,9 @@ export const MovieCard = ({
           className={classes.link}
           onClick={handleMovieCardLinkClick}
         >
-          <img src={posterPath} alt={title} className={classes.poster} />
+          {posterPath && (
+            <img src={posterPath} alt={title} className={classes.poster} />
+          )}
           {!menuIsOpen && (
             <Button
               onClick={toggleMenuIsOpen}
@@ -156,7 +158,6 @@ export const MovieCard = ({
             closeMenuOnSelect={true}
             onCloseOptions={toggleMenuIsOpen}
           />
-
           <div className={classes["title-and-year"]}>
             <p className={classes.title}>{title}</p>
             {year && <p className={classes.year}>{year}</p>}
@@ -172,7 +173,7 @@ MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   id: PropTypes.number.isRequired,
-  posterPath: PropTypes.string.isRequired,
+  posterPath: PropTypes.string,
   releaseDate: PropTypes.string.isRequired,
   runtime: PropTypes.number,
   voteAverage: PropTypes.number.isRequired,

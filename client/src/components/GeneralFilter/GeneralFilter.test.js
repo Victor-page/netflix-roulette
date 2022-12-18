@@ -1,5 +1,5 @@
 import { render, cleanup, screen, fireEvent } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { MemoryRouter as Router } from "react-router-dom";
 
 import { GeneralFilter } from "components";
 

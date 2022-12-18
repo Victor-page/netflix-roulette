@@ -7,7 +7,7 @@ import { App } from "components";
 
 import "./index.css";
 
-import store from "store";
+import { setupStore } from "store";
 
 const rootElement = document.getElementById("root");
 
@@ -18,7 +18,7 @@ const root = createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
     <Router>
-      <Provider store={store}>
+      <Provider store={setupStore()}>
         <App />
       </Provider>
     </Router>

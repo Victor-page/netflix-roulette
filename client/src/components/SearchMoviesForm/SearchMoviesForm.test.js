@@ -1,6 +1,6 @@
 import { render, cleanup, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { BrowserRouter as Router } from "react-router-dom";
+import { MemoryRouter as Router } from "react-router-dom";
 
 import { SearchMoviesForm } from "components";
 

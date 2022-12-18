@@ -5,7 +5,7 @@ import { MovieCard } from "components";
 import classes from "./MoviesList.module.css";
 
 export const MoviesList = ({ moviesList }) => (
-  <ul className={classes["movies-list"]}>
+  <ul className={classes["movies-list"]} data-testid="movies-list">
     {moviesList.map(
       ({
         id,
