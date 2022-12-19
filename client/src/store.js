@@ -30,10 +30,11 @@ const rootReducer = combineReducers({
   [movieShelfApi.reducerPath]: movieShelfApi.reducer,
 });
 
-const store = configureStore({
-  reducer: rootReducer,
-  middleware: getMiddlewaresList,
-  devTools: process.env.NODE_ENV === "development",
-});
-
-export default store;
+export const setupStore = (preloadedState) => {
+  return configureStore({
+    reducer: rootReducer,
+    middleware: getMiddlewaresList,
+    preloadedState,
+    devTools: process.env.NODE_ENV === "development",
+  });
+};

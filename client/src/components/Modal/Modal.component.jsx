@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
 
 import { Button } from "components/Button";
 
@@ -49,4 +50,9 @@ export const Modal = ({ children, onClose }) => {
     </div>,
     modalRoot
   );
+};
+
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+  onClose: PropTypes.func.isRequired,
 };

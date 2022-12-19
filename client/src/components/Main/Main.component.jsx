@@ -12,19 +12,20 @@ export const Main = () => {
   const sortOption = new URLSearchParams(search).get("sortBy");
   const genreOption = new URLSearchParams(search).get("genre");
 
+  const queryRequest = { genreOption, sortOption, searchQuery };
+
   const {
     data: movieShelf,
     isLoading,
     isError,
-    error,
-  } = useGetMovieShelfQuery({ genreOption, sortOption, searchQuery });
+  } = useGetMovieShelfQuery(queryRequest);
 
   return (
     <main className={classes.main}>
       <div className={`container ${classes["movie-shelf"]}`}>
         <MovieShelfFilterBar />
         {isLoading && <p>Loading...</p>}
-        {isError && <p>{error.message}</p>}
+        {isError && <p data-testid="error-message">There was an error</p>}
         {movieShelf && (
           <ErrorBoundary>
             <p className={classes.amount}>{movieShelf.length} movies found</p>

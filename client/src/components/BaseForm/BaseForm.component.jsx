@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import { Field, Formik, Form, useField } from "formik";
+import PropTypes from "prop-types";
 
 import { validationSchema, initialValues, genresOptionsList } from "./model";
 import { useAddMovieMutation, useEditMovieMutation } from "services";
@@ -183,4 +184,35 @@ export const BaseForm = ({
       )}
     </Formik>
   );
+};
+
+Input.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+};
+
+BaseForm.propTypes = {
+  movieToEdit: PropTypes.exact({
+    genres: PropTypes.arrayOf(
+      PropTypes.exact({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+      }).isRequired
+    ).isRequired,
+    id: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    posterPath: PropTypes.string.isRequired,
+    releaseDate: PropTypes.string.isRequired,
+    runtime: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    voteAverage: PropTypes.number.isRequired,
+  }),
+  onAddingError: PropTypes.func,
+  onAddingSuccess: PropTypes.func,
+  onEditingError: PropTypes.func,
+  onEditingSuccess: PropTypes.func,
 };

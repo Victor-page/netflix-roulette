@@ -3,13 +3,7 @@ import classNames from "classnames/bind";
 
 import classes from "./GenreFilter.module.css";
 
-const genresList = [
-  { value: "all", label: "All" },
-  { value: "documentary", label: "Documentary" },
-  { value: "comedy", label: "Comedy" },
-  { value: "horror", label: "Horror" },
-  { value: "crime", label: "Crime" },
-];
+import { genresList } from "./model";
 
 export const GenreFilter = () => {
   const location = useLocation();
@@ -32,6 +26,7 @@ export const GenreFilter = () => {
     <ul className={classes["genres-filter-list"]}>
       {genresList.map(({ label, value }) => (
         <li
+          data-testid={`${value}-genre`}
           key={value}
           className={classNames.bind(classes)({
             isActive: getIsActive(value),

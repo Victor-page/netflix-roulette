@@ -17,8 +17,6 @@ export * from "./SortSelector";
 export * from "./Modal";
 export * from "./Title";
 export * from "./BaseForm";
-export * from "./ShowOptionsButton";
-export * from "./FormControl";
 export * from "./MovieDetail";
 export * from "./MainHeader";
 export * from "./MultiSelect";

@@ -38,7 +38,7 @@ export const movieShelf = {
         posterPath,
         releaseDate,
         voteAverage,
-        runtime: runtime || "",
+        runtime: runtime || null,
       })
     ),
   providesTags: (result) =>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import PropTypes from "prop-types";
 
 import { Button } from "components";
 
@@ -31,8 +30,13 @@ export const SearchMoviesForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={classes["search-movies-form"]}>
+    <form
+      onSubmit={handleSubmit}
+      className={classes["search-movies-form"]}
+      data-testid="search-movies-form"
+    >
       <input
+        data-testid="search-movies-input"
         type="text"
         value={searchQuery}
         onChange={handleQueryChange}
@@ -40,13 +44,9 @@ export const SearchMoviesForm = () => {
         placeholder="What do you want to watch?"
         className={classes.input}
       />
-      <Button type="submit" primary>
+      <Button type="submit" primary data-testid="search-movies-button">
         Search
       </Button>
     </form>
   );
-};
-
-SearchMoviesForm.propTypes = {
-  onSubmit: PropTypes.func,
 };

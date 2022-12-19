@@ -1,5 +1,6 @@
 import Select, { components } from "react-select";
 import classNames from "classnames/bind";
+import PropTypes from "prop-types";
 
 import { Button } from "components";
 
@@ -77,3 +78,22 @@ export const BaseSelect = ({
     }}
   />
 );
+
+BaseSelect.propTypes = {
+  isClosingMenu: PropTypes.bool,
+  selectRef: PropTypes.object,
+  menuIsOpen: PropTypes.bool,
+  options: PropTypes.arrayOf(
+    PropTypes.exact({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ),
+  id: PropTypes.string.isRequired,
+  value: PropTypes.array,
+  onChange: PropTypes.func.isRequired,
+  extraClassName: PropTypes.string.isRequired,
+  closeMenuOnSelect: PropTypes.bool,
+  onCloseOptions: PropTypes.func,
+  dropdownIndicator: PropTypes.object,
+};

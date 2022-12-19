@@ -131,11 +131,19 @@ export const MovieCard = ({
       )}
       <li className={classes["movie-card"]}>
         <Link
+          data-testid="movie-link"
           to={`/movies/${id}`}
           className={classes.link}
           onClick={handleMovieCardLinkClick}
         >
-          <img src={posterPath} alt={title} className={classes.poster} />
+          {posterPath && (
+            <img
+              src={posterPath}
+              alt={title}
+              className={classes.poster}
+              data-testid="movie-image"
+            />
+          )}
           {!menuIsOpen && (
             <Button
               onClick={toggleMenuIsOpen}
@@ -150,14 +158,12 @@ export const MovieCard = ({
             menuIsOpen={menuIsOpen}
             options={optionsList}
             id="genre"
-            value={optionValue}
             onChange={optionChangeHandler}
             extraClassName={classes["options-select"]}
             dropdownIndicator={<ShowOptions />}
             closeMenuOnSelect={true}
             onCloseOptions={toggleMenuIsOpen}
           />
-
           <div className={classes["title-and-year"]}>
             <p className={classes.title}>{title}</p>
             {year && <p className={classes.year}>{year}</p>}
@@ -170,9 +176,12 @@ export const MovieCard = ({
 };
 
 MovieCard.propTypes = {
-  posterPath: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string),
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   id: PropTypes.number.isRequired,
-  year: PropTypes.number,
+  posterPath: PropTypes.string,
+  releaseDate: PropTypes.string.isRequired,
+  runtime: PropTypes.number,
+  voteAverage: PropTypes.number.isRequired,
+  overview: PropTypes.string.isRequired,
 };

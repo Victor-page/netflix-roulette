@@ -18,6 +18,7 @@ export const movieShelfApi = createApi({
     deleteMovie: builder.mutation(deleteMovie),
     editMovie: builder.mutation(editMovie),
   }),
+  tagTypes: ["movieShelf"],
 });
 
 export const {

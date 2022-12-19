@@ -1,4 +1,5 @@
 import { useField } from "formik";
+import PropTypes from "prop-types";
 
 import { BaseSelect } from "components";
 
@@ -26,4 +27,17 @@ export const MultiSelect = ({
       id={id}
     />
   );
+};
+
+MultiSelect.propTypes = {
+  id: PropTypes.string.isRequired,
+  field: PropTypes.object.isRequired,
+  extraClassName: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.exact({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };

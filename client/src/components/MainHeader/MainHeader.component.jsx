@@ -1,4 +1,7 @@
+import PropTypes from "prop-types";
+
 import classes from "./MainHeader.module.css";
+
 import { Navigation } from "components";
 
 export const MainHeader = ({ children }) => (
@@ -7,3 +10,7 @@ export const MainHeader = ({ children }) => (
     {children}
   </section>
 );
+
+MainHeader.propTypes = {
+  children: PropTypes.node.isRequired,
+};

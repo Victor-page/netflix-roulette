@@ -1,13 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { App } from "components";
 
 import "./index.css";
 
-import store from "store";
+import { setupStore } from "store";
 
 const rootElement = document.getElementById("root");
 
@@ -17,10 +17,10 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
   <StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
+    <Router>
+      <Provider store={setupStore()}>
         <App />
-      </BrowserRouter>
-    </Provider>
+      </Provider>
+    </Router>
   </StrictMode>
 );
