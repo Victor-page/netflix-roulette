@@ -131,12 +131,18 @@ export const MovieCard = ({
       )}
       <li className={classes["movie-card"]}>
         <Link
+          data-testid="movie-link"
           to={`/movies/${id}`}
           className={classes.link}
           onClick={handleMovieCardLinkClick}
         >
           {posterPath && (
-            <img src={posterPath} alt={title} className={classes.poster} />
+            <img
+              src={posterPath}
+              alt={title}
+              className={classes.poster}
+              data-testid="movie-image"
+            />
           )}
           {!menuIsOpen && (
             <Button

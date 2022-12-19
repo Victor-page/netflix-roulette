@@ -1,30 +1,37 @@
-import { render, cleanup, screen, fireEvent } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, cleanup, screen } from "@testing-library/react";
 import { MemoryRouter as Router } from "react-router-dom";
 
 import { SearchMoviesForm } from "components";
 
 afterEach(cleanup);
 
-test("<SearchMoviesForm />", async () => {
-  render(
-    <Router>
-      <SearchMoviesForm />
-    </Router>
-  );
-  // screen.debug();
-  const handleSubmit = jest.fn();
+describe("<SearchMoviesForm />", () => {
+  test("renders input", async () => {
+    render(
+      <Router>
+        <SearchMoviesForm />
+      </Router>
+    );
+    // screen.debug();
 
-  const searchMoviesForm = screen.getByTestId("search-movies-form");
-  const searchMoviesButton = screen.getByTestId("search-movies-button");
-  const searchMoviesInput = screen.getByTestId("search-movies-input");
+    const searchMoviesForm = screen.getByTestId("search-movies-form");
+    const searchMoviesButton = screen.getByTestId("search-movies-button");
+    const searchMoviesInput = screen.getByTestId("search-movies-input");
 
-  expect(searchMoviesInput).toHaveValue("");
+    expect(searchMoviesForm).toBeInTheDocument();
+    expect(searchMoviesButton).toBeInTheDocument();
+    expect(searchMoviesInput).toBeInTheDocument();
+  });
 
-  // const searchQuery = 'batman';
+  test("empty value is default", () => {
+    render(
+      <Router>
+        <SearchMoviesForm />
+      </Router>
+    );
 
-  // userEvent.type(searchMoviesInput, searchQuery);
-  // fireEvent.click(searchMoviesButton);
+    const searchMoviesInput = screen.getByTestId("search-movies-input");
 
-  // expect(handleSubmit).toHaveBeenCalledTimes(1);
+    expect(searchMoviesInput).toHaveValue("");
+  });
 });

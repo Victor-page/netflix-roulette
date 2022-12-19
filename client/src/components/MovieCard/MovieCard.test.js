@@ -26,7 +26,7 @@ describe("<MovieCard />", () => {
   test("with movie", async () => {
     const movie = {
       id: 337167,
-      genres: ["Drama", "Romance", "Crime"],
+      genres: ["Drama", "Romance"],
       title: "Fifty Shades Freed",
       runtime: 106,
       overview:
@@ -55,7 +55,11 @@ describe("<MovieCard />", () => {
     expect(console.error).not.toHaveBeenCalled();
 
     const title = await screen.findByText(movie.title);
+    const link = await screen.findByTestId("movie-link");
+    const image = await screen.findByTestId("movie-image");
 
     expect(title.textContent).toBe(movie.title);
+    expect(link.getAttribute("href")).toBe(`/movies/${movie.id}`);
+    expect(image.src).toBe(movie.posterPath);
   });
 });

@@ -22,6 +22,10 @@ describe("<Main />", () => {
     await waitFor(() => {
       expect(screen.getByTestId("movies-list")).toBeInTheDocument();
     });
+
+    expect(screen.queryByText("Loading...")).toBeFalsy();
+
+    expect(screen.getAllByTestId("movie-link").length).toBe(10);
   });
 
   it("handles error response", async () => {
@@ -47,5 +51,7 @@ describe("<Main />", () => {
     await waitFor(() => {
       expect(errorMessage.textContent).toBe("There was an error");
     });
+
+    expect(screen.queryByText("Loading...")).toBeFalsy();
   });
 });
