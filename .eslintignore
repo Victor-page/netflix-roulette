@@ -15,4 +15,4 @@ coverage/*
 # custom definition files
 /src/types/
 
-cypress
+ 

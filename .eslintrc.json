@@ -10,7 +10,8 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:cypress/recommended"
+    "plugin:cypress/recommended",
+    "prettier"
   ],
   "compilerOptions": {
     "types": ["cypress"]
@@ -22,7 +23,7 @@
     },
     "ecmaVersion": "latest"
   },
-  "plugins": ["react", "@typescript-eslint", "cypress"],
+  "plugins": ["react", "@typescript-eslint", "cypress", "prettier"],
   "types": ["cypress", "cypress-testing-library"],
-  "rules": {}
+  "rules": { "prettier/prettier": ["error"] }
 }
