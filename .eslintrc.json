@@ -13,9 +13,6 @@
     "plugin:cypress/recommended",
     "prettier"
   ],
-  "compilerOptions": {
-    "types": ["cypress"]
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
